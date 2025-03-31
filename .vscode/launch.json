@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "KononenbookstoreApplication",
+            "request": "launch",
+            "mainClass": "fi.haagahelia.kudjoibookstore.KononenbookstoreApplication",
+            "projectName": "kudjoibookstore"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-KudjoibookstoreApplication<kudjoibookstore>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "fi.haagahelia.kudjoibookstore.KudjoibookstoreApplication",
+            "projectName": "kudjoibookstore",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
