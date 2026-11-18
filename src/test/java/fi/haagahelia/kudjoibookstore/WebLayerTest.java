@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
 
 
@@ -53,9 +54,10 @@ public class WebLayerTest {
     }
 
     @Test
+    @DirtiesContext
     @WithMockUser(username = "user", roles = {"USER"})
     public void TestSaveAsUser() throws Exception {
-        this.mockMvc.perform(post("/books/save")).andDo(print())
+        this.mockMvc.perform(post("/save")).andDo(print())
         .andExpect(status().is3xxRedirection());
     }
 
@@ -70,7 +72,8 @@ public class WebLayerTest {
     }
 
     @Test
-    @WithMockUser(username = "admin", roles = {"ADMIN"})
+    @DirtiesContext
+    @WithMockUser(username = "admin", authorities = {"ADMIN"})
     public void TestDeleteBookAsAdmin() throws Exception {
         this.mockMvc.perform(get("/delete/1")).andDo(print())
         .andExpect(status().is3xxRedirection());
